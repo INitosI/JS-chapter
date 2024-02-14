@@ -458,17 +458,51 @@ Callback - це функція, яку ви передаєте як аргуме
 іншу функцію, і яка буде викликана (або "зворотно викликана")
 у майбутньому, після завершення певної операції або події.
 
-function callback(question, yes, no) {
+function callback(question, yes, no) { //конкретно у цьому прикладі буде виконана одна з функцій coutYes або coutNo, в залежності від дії confirm(question)
 	if (confirm(question)) {
 		yes();
 	} else {
 		no();
 	}
 }
-function coutYes() {
+function coutYes() {  // - Callback
 	console.log('you say yes'); - 
 }
-function coutNo() {
+function coutNo() { // - Callback
 	console.log('you say no');
 }
 callback('Yes or not?', coutYes, coutNo);
+
+
+****return**** - якщо вже є return то далі код не виконується:
+{if(age>18) return console.log(hello!); return console.log(Bye!);}
+
+/------------------------------------------------------------------------------/
+***** СТРІЛКОВІ ФУНКЦІЇ *****
+/------------------------------------------------------------------------------/
+
+
+const FuName = ()=>{...}
+
+
+/------------------------------------------------------------------------------/
+***** Підключення коду HTML *****
+/------------------------------------------------------------------------------/
+
+
+console.log(document);
+
+
+console.log(document);
+
+const inputRef = document.querySelector('input[name="number"]');
+//создаём переменную = document/*это и есть HTML файл*/.querySelector /*выделяем что хотим выбрать*/('input[name="number"]'); //синтаксис сохранять.
+const buttonRef = document.querySelector('button'); // таким-же методом выбираем кнопку, которая будет работать с данными input`a
+buttonRef.addEventListener('click', () => { //это и есть логика отправки данных из input`a: ивент "клик" создаёт стрелковую функцию которая выводит значение input`a 
+	console.log(inputRef.value);
+});
+
+
+/------------------------------------------------------------------------------/
+***** Замикання,this *****
+/------------------------------------------------------------------------------/
