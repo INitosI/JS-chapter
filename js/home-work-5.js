@@ -1,21 +1,26 @@
-const message = function (name) {
-	console.log(`Hello, dear ${name}`);
-	console.log(`Welcome to ${this.hotel}. ${this.stars} stars hotel.`);
+const cart = {
+	ShowItems() {
+		console.log('У корзині ', this.type, ' розміру ', this.size);
+	},
 };
 
-const Bukovel = {
-	hotel: 'Bukovel',
-	stars: 5,
+const woman = {
+	type: ['Туфлі', 'Сукня'],
+	size: 'XS',
 };
-const Dnypro = {
-	hotel: 'Dnypro',
-	stars: 3,
+const man = {
+	type: ['Футболка', 'Кофта'],
+	size: 'XL',
 };
-const Vivien = {
-	hotel: 'Vivien',
-	stars: 2,
+const kid = {
+	type: ['Майка', 'Шорти'],
+	size: 'M',
 };
 
-message.call(Bukovel, 'Ivan');
-message.call(Dnypro, 'Anna');
-message.call(Vivien, 'Danylo');
+const WomRef = document.querySelector('#wom');
+const ManRef = document.querySelector('#man');
+const KidRef = document.querySelector('#kid');
+
+WomRef.addEventListener('click', cart.ShowItems.bind(woman));
+ManRef.addEventListener('click', cart.ShowItems.bind(man));
+KidRef.addEventListener('click', cart.ShowItems.bind(kid));
