@@ -1,0 +1,78 @@
+/------------------------------------------------------------------------------/
+***** Strings *****
+/------------------------------------------------------------------------------/
+
+
+
+let str1 = "txt";
+let str2 = 'txt';
+let str3 = `Hello ${name}`
+const str4 = "js"+"is"+"me";
+
+***** Конкатенація *****
+
+let age = 30;
+
+let firstName = 'John';
+let lastName = 'Doe';
+
+let fullName = firstName + ' ' + lastName;
+console.log(fullName); // Выведет: John Doe
+
+let message = 'Привет, меня зовут ' + fullName + ' и мне ' + age + ' лет.';
+console.log(message); // Выведет: Привет, меня зовут John Doe и мне 30 лет.
+
+*****Error*****
+let result;
+result = 5 + "5"; //55
+result = 5 + 5 + "5"; //105
+result = 5 + "5" + 5; //555
+*****Error*****
+
+***** методи строк *****
+
+length: Возвращает длину строки
+let str = 'Hello';
+console.log(str.length); // Выведет: 5
+
+charAt(index): Возвращает символ в указанной позиции (индексе) строки
+let str = 'Hello';
+console.log(str.charAt(0)); // Выведет: H
+
+toUpperCase(): Преобразует все символы строки в верхний регистр
+let str = 'Hello';
+console.log(str.toUpperCase()); // Выведет: HELLO
+
+toLowerCase(): Преобразует все символы строки в нижний регистр.
+let str = 'Hello';
+console.log(str.toLowerCase()); // Выведет: hello
+
+indexOf(substring): Возвращает индекс (позицию) первого вхождения подстроки в строку. Если подстрока не найдена, возвращает -1
+let str = 'Hello, world';
+console.log(str.indexOf('world')); // Выведет: 7 так как 7-индекс начала слова world4
+
+slice(start, end): Извлекает часть строки и возвращает новую строку, начиная с позиции start до end (не включая).
+let str = 'Hello, world';
+console.log(str.slice(0, 5)); // Выведет: Hello
+
+replace(searchValue, replaceValue): Заменяет первое вхождение searchValue на replaceValue.
+let str = 'Hello, world';
+console.log(str.replace('world', 'JavaScript')); // Выведет: Hello, JavaScript
+
+split(separator): Разбивает строку на массив подстрок, используя разделитель separator.
+let str = 'apple,banana,orange';
+console.log(str.split(',')); // Выведет: ['apple', 'banana', 'orange']
+
+trim(): Удаляет пробельные символы с начала и конца строки.
+let str = '  Hello, world  ';
+console.log(str.trim()); // Выведет: Hello, world
+
+
+includes:
+let str = 'Hello, world';
+
+console.log(str.includes('world')); // Выведет: true
+console.log(str.includes('World')); // Выведет: false, так как поиск чувствителен к регистру
+console.log(str.includes('Hello')); // Выведет: true
+console.log(str.includes('lo', 3)); // Выведет: true, поиск начинается с позиции 3
+
