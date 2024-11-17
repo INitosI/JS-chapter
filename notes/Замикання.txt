@@ -1,0 +1,32 @@
+/------------------------------------------------------------------------------/
+***** Замикання *****
+/------------------------------------------------------------------------------/
+
+function outerFunction() {
+  let outerVariable = 'Зовнішня змінна';
+
+  function innerFunction() {
+    console.log(outerVariable);
+  }
+
+  return innerFunction;
+}
+
+const innerFunc = outerFunction();
+innerFunc(); // Виведе: Зовнішня змінна
+
+Замикання (closure) - це ключовий аспект функціонального 
+програмування в JavaScript. Замикання виникає, коли внутрішня 
+функція (завернута функція) має доступ до змінних
+зовнішньої функції, навіть після того, як зовнішня функція завершила свою роботу.
+
+****Або так****
+
+function createUrl(domain) {
+	return function (url) {
+		return `https://${url}.${domain}`;
+	};
+}
+
+const Num = createUrl('edu');
+console.log(Num('genius.space'));

@@ -1,0 +1,88 @@
+/------------------------------------------------------------------------------/
+***** this *****
+/------------------------------------------------------------------------------/
+
+потрібен для універсального використання функцій та конструкторів
+
+Приклад: 
+
+const Ivan = {
+	name: "Ivan",
+	age: 31,
+	func: function (){
+		console.log(`name is ${this.name}`);
+		console.log(`age is ${this.age}`);
+	},
+}
+
+const Anna = {
+	name: "Anna",
+	age: 12,
+}
+
+Ivan.func(); // виведе name is Іван; age is 31;
+Ivan.func.bind(Anna)(); // виведе name is Anna; age is 12; // bind(Anna) - створює аналогічну функцію у Анні
+
+Для того щоб додати аргумент до функції bind(Anna, аргумент)
+
+/------------------------------------------------------------------------------/
+***** приклад виконання this *****
+/------------------------------------------------------------------------------/
+
+
+const message = function (name) {
+	console.log(`Hello, dear ${name}`);
+	console.log(`Welcome to ${this.hotel}. ${this.stars} stars hotel.`);
+};
+
+const Bukovel = {
+	hotel: 'Bukovel',
+	stars: 5,
+};
+const Dnypro = {
+	hotel: 'Dnypro',
+	stars: 3,
+};
+const Vivien = {
+	hotel: 'Vivien',
+	stars: 2,
+};
+
+message.call(Bukovel, 'Ivan');
+message.call(Dnypro, 'Anna');
+message.call(Vivien, 'Danylo');
+
+
+
+також є apply: message.apply(Bukovel, ['Ivan', передаєте масив]);
+
+
+//=====================================================//
+
+
+const cart = {
+	ShowItems() {
+		console.log('У корзині ', this.type, ' розміру ', this.size);
+	},
+};
+
+const woman = {
+	type: ['Туфлі', 'Сукня'],
+	size: 'XS',
+};
+const man = {
+	type: ['Футболка', 'Кофта'],
+	size: 'XL',
+};
+const kid = {
+	type: ['Майка', 'Шорти'],
+	size: 'M',
+};
+
+const WomRef = document.querySelector('#wom');
+const ManRef = document.querySelector('#man');
+const KidRef = document.querySelector('#kid');
+
+WomRef.addEventListener('click', cart.ShowItems.bind(woman));
+ManRef.addEventListener('click', cart.ShowItems.bind(man));
+KidRef.addEventListener('click', cart.ShowItems.bind(kid));

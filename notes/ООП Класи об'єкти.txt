@@ -1,0 +1,150 @@
+/------------------------------------------------------------------------------/
+***** ООП Класи об'єкти *****
+/------------------------------------------------------------------------------/
+
+//======Класи 
+
+
+//==об'єкт
+
+const credit = {
+	amount: 20000,
+	month: 12,
+	p: 1000,
+	result() {
+		return this.amount + this.p * this.month;
+	},
+};
+
+console.log(credit.result());
+
+об'єкт - екземпляр класу.
+інтерфейс - набір методів класу.
+
+В ООП є 4 "кити", на яких воно тримається:
+
+****Інкапсуляція - спосіб закрити доступ до 
+даних користувачу, залишивши тільки методи інтерфейсу
+
+****Абстракція - 
+
+****Спадкування - спосіб створення нового класу на основі материнського
+
+****Поліморфізм - використання одного і тогож методу багаторазово
+
+//==клас
+
+class Bank {
+	static type = 'bank'; // static не дозволяє використовувати данні ззовні
+	constructor(options) {
+		this.summ = options.summ;
+		this.month = options.month;
+		this.p = options.p;
+	}
+	credit() {
+		return console.log(this.summ + this.p * this.month);
+	}
+}
+
+const userBank = new Bank({
+	summ: 30000,
+	month: 5,
+	p: 500,
+});
+
+userBank.credit();
+
+
+//====Спадкування
+
+class Private extends Bank {
+	constructor(options) {
+		super(options);
+		this.card = options.card;
+	}
+	credit() {
+		super.credit(); //Також можна копіювати методи, а не переписувати їх
+		return console.log(this.summ + this.p * this.month + ' ' + this.card);
+	} // дочірні класи можуть переписувати методи під себе
+}
+
+const userBank = new Private({
+	summ: 30000,
+	month: 5,
+	p: 500,
+	card: 'Visa',
+});
+
+userBank.credit();
+
+//=====get & set
+
+class user {
+	constructor(props /* назва не має значення*/) {
+		this.name = props.name;
+	}
+	firstName = '';
+	lastName = '';
+	age = '';
+	city = '';
+	set name(newName) {
+		const nameRow = newName.split(' ');
+		this.firstName = nameRow[0];
+		this.lastName = nameRow[1];
+	}
+
+	get name() {
+		return `First name : ${this.firstName}. Last name : ${this.lastName}`;
+	}
+}
+
+const Dara = new user({
+	name: 'Daria Bila',
+});
+
+console.log(Dara);
+
+
+//===prototype прототип
+
+const a = {
+	x: 1,
+	y: 2,
+}
+
+const b = Object.create(a); // посилання до першого об'єкту
+
+приклад:
+
+const Manager = function (name, sales) {
+	this.name = name;
+	this.sales = sales;
+};
+
+const ann = new Manager('Anna', 5);
+const ivan = new Manager('Ivan', 15);
+
+Manager.prototype.sale = function () {
+	this.sales += 1;
+}; //створює новий прототип за для економії пам'яті
+//тепер екземпляри класу можуть не копіювати собі цей метод
+// а просто посилатися на цей прототип
+
+console.log(ann.sales);
+ann.sale();
+console.log(ann.sales);
+
+
+захищені поля позначають так: _name
+#name
+
+===============================
+
+Транспілятор - це інстумент, який перекладає код з однієї мови на іншу
+
+height = height ?? 100;
+
+поліфіли - інструмент, або метод, який дозволяє перевіряти, чи підтримує
+поточна система саме наш код.
+
+if(!Math.trunc) // якщо функції такої не має, то ми  прописуємо все ручками.

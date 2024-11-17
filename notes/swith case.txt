@@ -1,0 +1,16 @@
+**** swith case ****
+switch(x){
+	case "значення x":
+		дія;
+		break;
+
+	case "значення x":
+		дія;
+		break;
+
+	case "значення x":
+		дія;
+		break;
+
+		default: console.log("invalid search")
+}

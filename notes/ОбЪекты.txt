@@ -12,7 +12,7 @@ console.log(person.name); // Выведет: Vasya: 13}; Визивається 
 
 Объекты могут быть также созданы с помощью конструктора new Object(): |
 let car = new Object();
-car.make = 'Toyota';
+car.mark = 'Toyota';
 car.model = 'Camry';
 car.year = 2020; */
 

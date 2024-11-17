@@ -1,0 +1,16 @@
+/------------------------------------------------------------------------------/
+***** Підключення коду HTML *****
+/------------------------------------------------------------------------------/
+
+
+console.log(document);
+
+
+console.log(document);
+
+const inputRef = document.querySelector('input[name="number"]');
+//создаём переменную = document/*это и есть HTML файл*/.querySelector /*выделяем что хотим выбрать*/('input[name="number"]'); //синтаксис сохранять.
+const buttonRef = document.querySelector('button'); // таким-же методом выбираем кнопку, которая будет работать с данными input`a
+buttonRef.addEventListener('click', () => { //это и есть логика отправки данных из input`a: ивент "клик" создаёт стрелковую функцию которая выводит значение input`a 
+	console.log(inputRef.value);
+});
